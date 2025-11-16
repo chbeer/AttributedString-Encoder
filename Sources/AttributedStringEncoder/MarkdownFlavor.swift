@@ -8,10 +8,10 @@
 import Foundation
 
 /// CommonMark Markdown flavor.
-open class MarkdownFlavor {
+@objc open class MarkdownFlavor: NSObject {
 
     /// CommonMark Markdown flavor.
-    nonisolated(unsafe) public static let commonMark = MarkdownFlavor()
+    @objc nonisolated(unsafe) public static let commonMark = MarkdownFlavor()
     
     /// Encode a run of an AttributedString.
     /// - Parameters:

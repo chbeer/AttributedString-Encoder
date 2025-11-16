@@ -5,6 +5,9 @@
 //  Created by Christian Beer on 16.11.25.
 //
 
+import Foundation
+import AttributedStringEncoder
+
 /// Encoder to encode NSAttributedString to Markdown string
 @objc public class NSAttributedStringEncoder: NSObject {
     
@@ -18,10 +21,11 @@
     /// - Parameter string: AttributedString to encode
     /// - Returns: encoded string as Markdown
     @objc public func encode(_ string: NSAttributedString) -> String {
-        string
+        let attr = AttributedString(string)
+        return attr
             .runs
             .map { run in
-                return flavor.encodeRun(run, in: string[run.range])
+                return flavor.encodeRun(run, in: attr[run.range])
             }
             .joined()
     }
